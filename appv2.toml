@@ -1,0 +1,11 @@
+[sync_reader]
+address = "127.0.0.1:6380"
+password = "dalong"
+
+[redis_writer]
+address = "127.0.0.1:6666"
+password = "dalongdemo"
+
+[advanced]
+rdb_restore_command_behavior = "rewrite"
+status_port = 400

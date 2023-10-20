@@ -1,0 +1,26 @@
+version: "3"
+services:
+    db: 
+         image: eqalpha/keydb
+         command: keydb-server /etc/keydb/keydb.conf --requirepass dalong  --masterauth dalong --active-replica yes --replicaof db2  6379
+         ports:
+         - 6382:6379
+    db2: 
+         image: eqalpha/keydb
+         command: keydb-server /etc/keydb/keydb.conf   --requirepass dalong  --masterauth dalong --active-replica yes --replicaof db  6379
+         ports:
+         - 6381:6379
+    keydb: 
+       image: eqalpha/keydb
+       command: keydb-server /etc/keydb/keydb.conf   --requirepass dalong
+       ports:
+        - 6380:6379
+    redis:
+       image: redis
+       ports:
+       - 6379:6379
+    kvrocks:
+       image: apache/kvrocks
+       command: --requirepass dalongdemo  --bind 0.0.0.0
+       ports:
+       - 6666:6666
