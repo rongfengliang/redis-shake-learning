@@ -1,9 +1,9 @@
 [redis_writer]
-address = "127.0.0.1:6383"
-password = "dalongdemo"
+address = "127.0.0.1:6379"
 
 [sync_reader]
-address = "127.0.0.1:6379"
+address = "127.0.0.1:6383"
+password = "dalongdemo"
 
 [advanced]
 rdb_restore_command_behavior = "rewrite"

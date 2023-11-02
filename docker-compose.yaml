@@ -24,3 +24,12 @@ services:
        command: --requirepass dalongdemo  --bind 0.0.0.0
        ports:
        - 6666:6666
+    dragonfly:
+       image: docker.dragonflydb.io/dragonflydb/dragonfly
+       command: --requirepass=dalongdemo
+       ulimits:
+         memlock:
+            soft: -1
+            hard: -1
+       ports:
+         - 6383:6379
